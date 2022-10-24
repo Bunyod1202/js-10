@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+  integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link rel="stylesheet" href="./css/main.css">
+</head>
+
+<body>
+  <main>
+    <section class="hiro">
+      <div class="container ">
+      <div class="d-flex">
+        <img class="mx-auto my-5 " src="./images/800px-Russian_Pokemon_logo.svg.png" style="width:100%" alt="pokemons">
+      </div>
+      <form class="input-group search-form mb-3">
+        <button class="btn btn-outline-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+          Filter
+        </button>
+   
+        <input type="text" class="form-control input-search" placeholder="Search" >
+        <button class="btn btn-outline-secondary" type="submit" >Search</button>
+      </form>
+      <div class="collapse" id="collapseExample">
+        <div class="card card-body">
+         <form class="form-filter" >
+          <select class="form-select categori-select">
+            <option value="all">All Categore</option>
+          </select>
+          <select class="form-select all-select mt-3">
+            <option value="all">All</option>
+            <option value="az">a>z</option>
+            <option value="za">z>a</option>
+            <option value="za">z>a</option>
+          </select>
+          <button type="submit" class="btn btn-info w-100 mt-3">Filter</button>
+         </form>
+        </div>
+      </div>
+        <!-- ?  ///////////////////////////////////////////////////////////// -->
+        <template class="pokemons-template">
+          <div class="list-unstyled col-md-6 col-xl-3 px-4">
+            <li class="item  position-relative rounded my-5 p-5 alert-info text-center border border-3 border-light boxss h-75">
+              <span class="item-num position-absolute top-0 start-100 translate-middle p-2 alert-primary border border-3 border-light rounded-circle px-3 asci" ></span>
+              <img class="item-img w-75" src="" alt="Pokemon's image">
+              <h3 class="item-title text-white"></h3>
+              <time class="item-time"></time>
+              <p class="item-category"></p>
+            </li>
+          </div>
+        </template>
+         <ul class="list row list-unstyled">
+
+    </ul>
+
+      </div>
+    </section>
+  </main>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+  <script src="./js/pokemons.js"></script>
+  <script src="./js/main.js"></script>
+</body>
+
+
+</html>
