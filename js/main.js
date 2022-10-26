@@ -1,6 +1,7 @@
 let elSearchForm = document.querySelector(".search-form")
 let elFilterForm = document.querySelector(".form-filter")
 let elSearchInput = document.querySelector(".input-search")
+let elallSelect = document.querySelector(".all-select")
 let elCategoriSelect = document.querySelector(".categori-select")
 
 
@@ -37,10 +38,10 @@ function createel(arr,ress ="") {
     cloneTemplate.querySelector(".item-time").classList.add("badge", "bg-info");
   
     cloneTemplate.querySelector(".item-time").setAttribute("datetime", `2022-10-03 ${pokemon.spawn_time}`);
-  
+
     var newItem = document.createElement("li");
     var newImg = document.createElement("img");
-    var newTitle = document.createElement("h3");
+    var newTitle = document.createElement("h3");  
     var newNum = document.createElement("span");
     
     
@@ -109,8 +110,71 @@ elFilterForm.addEventListener("submit", function (evt) {
     })
     createel(categoriFilter)
   }
-  
+if (elallSelect.value == "az") {
+  az()
+} else if (elallSelect.value == "za") {
+  za()
+} else if (elallSelect.value == "kg12") {
+  kg12() 
+}else if (elallSelect.value == "kg21") {
+  kg21() 
+}else if (elallSelect.value == "m12") {
+  m12() 
+}else if (elallSelect.value == "m21") {
+  m21() 
+}else if (elallSelect.value == "cendy21") {
+  count12()
+}else if (elallSelect.value == "cendy12") {
+  count21()
+}
 })
 //1///////////////////////
+
+function az() {
+  pokemons.sort((a, b) => a.name.charCodeAt(0) - b.name.charCodeAt(0)
+  )
+}
+function za() {
+  pokemons.sort((a, b) => b.name.charCodeAt(0) - a.name.charCodeAt(0)
+  )
+}
+  
+function kg12() {
+  pokemons.sort((a, b) => Number(b.weight.split(" ")[0]) - Number(a.weight.split(" ")[0])
+  )
+}
+function kg21() {
+  pokemons.sort((a, b) => Number(a.weight.split(" ")[0]) - Number(b.weight.split(" ")[0])
+  )
+}
+  
+function m12() {
+  pokemons.sort((a, b) => Number(b.height.split(" ")[0]) - Number(a.height.split(" ")[0])
+  )
+}
+function m21() {
+  pokemons.sort((a, b) => Number(a.height.split(" ")[0]) - Number(b.height.split(" ")[0])
+  )
+}
+
+function count12() {
+  pokemons.sort((a, b) => {
+    let aa
+    let bb
+    if (b.candy_count != undefined) {aa = b.candy_count }
+    if (a.candy_count != undefined) { bb = a.candy_count }
+    return bb - aa
+  })
+}
+function count21() {
+  pokemons.sort((a, b) => {
+    let aa
+    let bb
+    if (b.candy_count != undefined) {aa = b.candy_count }
+    if (a.candy_count != undefined) { bb = a.candy_count }
+    return aa - bb
+  })
+  
+}
 
 createel(pokemons)
