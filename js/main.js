@@ -9,7 +9,7 @@ var elList = document.querySelector(".list");
 
 var fragment = new DocumentFragment();
 
-
+let cendy = pokemons.filter(item => item.candy_count)
 
 var elTemplate = document.querySelector(".pokemons-template").content;
 
@@ -34,6 +34,9 @@ function createel(arr,ress ="") {
     cloneTemplate.querySelector(".item");
     cloneTemplate.querySelector(".item-img").src = pokemon.img;
     cloneTemplate.querySelector(".item-time").textContent = pokemon.spawn_time;
+    cloneTemplate.querySelector(".weight").textContent = pokemon.weight;
+    cloneTemplate.querySelector(".height").textContent = pokemon.height;;
+    cloneTemplate.querySelector(".cendy").textContent =  pokemon.candy_count;
 
     cloneTemplate.querySelector(".item-time").classList.add("badge", "bg-info");
   
@@ -101,6 +104,7 @@ function createSelectOption() {
 createSelectOption()
 elFilterForm.addEventListener("submit", function (evt) {
   evt.preventDefault()
+ 
   let searchValue = elCategoriSelect.value
   if (searchValue == "all") {
     createel(pokemons)
@@ -158,23 +162,26 @@ function m21() {
 }
 
 function count12() {
-  pokemons.sort((a, b) => {
+
+  cendy.sort((a, b) => {
     let aa
     let bb
     if (b.candy_count != undefined) {aa = b.candy_count }
     if (a.candy_count != undefined) { bb = a.candy_count }
     return bb - aa
   })
+  createel(cendy)
 }
 function count21() {
-  pokemons.sort((a, b) => {
+ 
+  cendy.sort((a, b) => {
     let aa
     let bb
     if (b.candy_count != undefined) {aa = b.candy_count }
     if (a.candy_count != undefined) { bb = a.candy_count }
     return aa - bb
   })
-  
+  createel(cendy)
 }
 
 createel(pokemons)
